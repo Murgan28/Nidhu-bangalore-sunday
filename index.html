@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Nidhu • Chennai to Bangalore</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Playfair+Display:ital,wght@0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Hidden Audio Player for Background Song -->
+  <audio id="bgSong" loop preload="auto">
+    <source src="bg-song.mp3" type="audio/mpeg" />
+  </audio>
+
+  <!-- Dynamic Celestial Nebula Background Canvas -->
+  <canvas id="ambient-canvas"></canvas>
+  <div class="interactive-glow" id="mouseGlow"></div>
+
+  <!-- Top Navigation Bar -->
+  <header class="master-nav">
+    <div class="nav-cluster-left">
+      <div class="status-orb">
+        <div class="pulse-ring"></div>
+        <div class="pulse-core"></div>
+      </div>
+      <div class="nav-route-spec">
+        <p class="nav-route-code">MAA // CHENNAI ➔ BLR // BENGALURU</p>
+        <p class="nav-route-meta">Interstate Route 44 • 346 KM Telemetry</p>
+      </div>
+    </div>
+
+    <div class="nav-cluster-right">
+      <!-- Glowing Song Stop/Play Toggle Button -->
+      <button class="nav-pill-btn music-glow-btn" id="musicToggleBtn" onclick="toggleBackgroundMusic()">
+        <span class="music-disc-icon" id="musicDisc">♫</span>
+        <span id="musicLabel">Music: Playing</span>
+      </button>
+      <button class="nav-pill-btn accent" onclick="triggerDistSignal()">
+        <span class="pill-icon">⚡</span>
+        <span>Ping Nidhu</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Header -->
+  <header class="hero-showcase">
+    <div class="kicker-pill">Bangalore Internship Chapter</div>
+    <h1 class="hero-headline">No Matter The Distance, Nidhu.</h1>
+    <p class="hero-subtext">
+      "Shayad wapas aane par sab kuch badal jayega... lekin ek cheez waise ki waise rahegi: Hamari Dosti.[span_0](start_span)"[span_0](end_span)
+    </p>
+
+    <!-- Telemetry Status Ribbon -->
+    <div class="telemetry-deck glass-surface">
+      <div class="deck-node">
+        <p class="node-title">COUNTDOWN</p>
+        <p class="node-val highlight">~50 Days</p>
+        <p class="node-note">Reduced from 2 Mos to 1.20 Mo</p>
+      </div>
+      <div class="deck-split"></div>
+      <div class="deck-node">
+        <p class="node-title">TRANSIT DURATION</p>
+        <p class="node-val">04h 25m</p>
+        <p class="node-note">Shatabdi / Vande Bharat Express</p>
+      </div>
+      <div class="deck-split"></div>
+      <div class="deck-node">
+        <p class="node-title">HOTLINE</p>
+        <p class="node-val">24 / 7</p>
+        <p class="node-note">Everyday Non-Negotiable Calls</p>
+      </div>
+      <div class="deck-split"></div>
+      <div class="deck-node">
+        <p class="node-title">HOME CORNER</p>
+        <p class="node-val permanent">PERMANENT</p>
+        <p class="node-note">Chennai Always Welcomes You</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-body">
+
+    <!-- Cinema Projection Stage (Centered) -->
+    <section class="section-container">
+      <div class="section-heading-wrap">
+        <p class="section-super">ARCHIVE THEATER // 01</p>
+        <h2 class="section-title">The Reel Dialogue Cinema</h2>
+        <p class="section-subtitle">Faithful, word-for-word audio dialogues and scene reflections captured on frame.</p>
+      </div>
+
+      <div class="dual-cinema-stage">
+
+        <!-- Cinema Player 1 -->
+        <article class="cinema-cabinet glass-surface" id="cabinet1">
+          <div class="cabinet-topbar">
+            <div class="cabinet-identity">
+              <div class="feed-indicator"></div>
+              <p class="feed-label">REEL 01 • LETTING GO</p>
+            </div>
+            <div class="cabinet-status-chip">1080P PROJECTION</div>
+          </div>
+
+          <!-- Vertical Anamorphic Frame -->
+          <div class="media-aperture">
+            <video id="vid1" playsinline loop preload="metadata" ontimeupdate="syncVideoProgress('vid1', 'bar1', 'time1')">
+              <source src="1000129112.mp4" type="video/mp4" />
+            </video>
+            <div class="aperture-overlay" id="overlay1" onclick="togglePlayback('vid1', 'overlay1')">
+              <div class="play-orb-lens">
+                <div class="play-symbol"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Scrubbing Deck -->
+          <div class="scrub-assembly" onclick="seekVideo('vid1', event)">
+            <div class="scrub-channel">
+              <div class="scrub-glow-fill" id="bar1"></div>
+            </div>
+          </div>
+
+          <!-- Control Console -->
+          <div class="console-control-row">
+            <div class="control-cluster-left">
+              <button class="ctrl-btn main-action" onclick="togglePlayback('vid1', 'overlay1')">Play / Pause</button>
+              <button class="ctrl-btn" onclick="toggleMute('vid1', this)">Mute</button>
+              <button class="ctrl-btn" onclick="cycleSpeed('vid1', this)">1.0x</button>
+              <button class="ctrl-btn" onclick="jumpSeconds('vid1', 5)">+5s</button>
+              <button class="ctrl-btn" onclick="toggleFullscreen('vid1')">Full</button>
+              <button class="ctrl-btn" onclick="togglePictureInPicture('vid1')">PiP</button>
+            </div>
+            <p class="time-readout-spec" id="time1">00:00 / 00:00</p>
+          </div>
+
+          <!-- Dialogue Display (with Nidhu replacement) -->
+          <div class="dialogue-parchment-box">
+            <blockquote class="dialogue-transcription">
+              "Main samajhta hoon. Nidhu? Main tumhare sar pe baitha munja nahi banna chahta. Jao... live your life. Khush raho. I'll be fine.[span_1](start_span)"[span_1](end_span)
+            </blockquote>
+            <p class="dialogue-footnote">
+              Caption: "Sometimes letting your loved one go is better for both of you... ❤️[span_2](start_span)"[span_2](end_span)
+            </p>
+          </div>
+        </article>
+
+        <!-- Cinema Player 2 -->
+        <article class="cinema-cabinet glass-surface" id="cabinet2">
+          <div class="cabinet-topbar">
+            <div class="cabinet-identity">
+              <div class="feed-indicator"></div>
+              <p class="feed-label">REEL 02 • THE ETERNAL BOND</p>
+            </div>
+            <div class="cabinet-status-chip">1080P PROJECTION</div>
+          </div>
+
+          <!-- Vertical Anamorphic Frame -->
+          <div class="media-aperture">
+            <video id="vid2" playsinline loop preload="metadata" ontimeupdate="syncVideoProgress('vid2', 'bar2', 'time2')">
+              <source src="1000129113.mp4" type="video/mp4" />
+            </video>
+            <div class="aperture-overlay" id="overlay2" onclick="togglePlayback('vid2', 'overlay2')">
+              <div class="play-orb-lens">
+                <div class="play-symbol"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Scrubbing Deck -->
+          <div class="scrub-assembly" onclick="seekVideo('vid2', event)">
+            <div class="scrub-channel">
+              <div class="scrub-glow-fill" id="bar2"></div>
+            </div>
+          </div>
+
+          <!-- Control Console -->
+          <div class="console-control-row">
+            <div class="control-cluster-left">
+              <button class="ctrl-btn main-action" onclick="togglePlayback('vid2', 'overlay2')">Play / Pause</button>
+              <button class="ctrl-btn" onclick="toggleMute('vid2', this)">Mute</button>
+              <button class="ctrl-btn" onclick="cycleSpeed('vid2', this)">1.0x</button>
+              <button class="ctrl-btn" onclick="jumpSeconds('vid2', 5)">+5s</button>
+              <button class="ctrl-btn" onclick="toggleFullscreen('vid2')">Full</button>
+              <button class="ctrl-btn" onclick="togglePictureInPicture('vid2')">PiP</button>
+            </div>
+            <p class="time-readout-spec" id="time2">00:00 / 00:00</p>
+          </div>
+
+          <!-- Dialogue Display -->
+          <div class="dialogue-parchment-box">
+            <blockquote class="dialogue-transcription">
+              "Shayad wapas aane par sab badal jayega... lekin ek cheez waise ki waise rahegi: Hamari Dosti.[span_3](start_span)"[span_3](end_span)
+            </blockquote>
+            <p class="dialogue-footnote">
+              Caption: Why it's always "We're bff's" and never JTWATSYSKBCHMECWKWRHD[span_4](start_span)[span_4](end_span)
+            </p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Emotional Letter Section -->
+    <section class="section-container">
+      <article class="letter-vault glass-surface">
+        <div class="vault-accent-stripe"></div>
+        <p class="vault-tagline">TRANSMISSION // CHENNAI PERSPECTIVE</p>
+        <h2 class="vault-title">Without You In Chennai: The Real Truth</h2>
+        
+        <div class="vault-prose">
+          <p>
+            Without you in Chennai, honestly, I don't know how I'm going to survive everyday life. You've been my closest confidante, my daily routine partner, and the one person who makes regular chaotic days feel comfortable. When you first mentioned Bangalore, it felt like an abstract milestone sitting safely 2 months away. Then suddenly that reduced to 1 month and 20 days, and now the days are sliding down like sand.
+          </p>
+          <p>
+            My logical brain knows this internship is your stage. You worked tirelessly for this, and you deserve to walk into Bangalore and claim every milestone that's waiting for you. But my heart keeps bargaining the terms: weekend visits, everyday phone calls, mandatory late-night video calls, and keeping track of every single detail about your day.
+          </p>
+        </div>
+
+        <div class="unbreakable-protocol-grid">
+          <div class="protocol-tile">
+            <p class="tile-number">RULE 01</p>
+            <h3 class="tile-headline">Daily Evening Calls</h3>
+            <p class="tile-text">Video call routine at the end of the day, no matter how tired or late the internship shift ran.</p>
+          </div>
+          <div class="protocol-tile">
+            <p class="tile-number">RULE 02</p>
+            <h3 class="tile-headline">Weekend Commutes</h3>
+            <p class="tile-text">Shatabdi or overnight sleeper buses whenever schedules permit. Distance is only 346 kilometers.</p>
+          </div>
+          <div class="protocol-tile">
+            <p class="tile-number">RULE 03</p>
+            <h3 class="tile-headline">The Home Base</h3>
+            <p class="tile-text">Whenever Bangalore feels overwhelming or foreign, remember you have a constant home team cheering right here.</p>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- 5 Luxury Frame Tribute Cards -->
+    <section class="section-container">
+      <div class="section-heading-wrap">
+        <p class="section-super">KEEPSAKE FRAMES // 02</p>
+        <h2 class="section-title">Words Kept In Frame</h2>
+        <p class="section-subtitle">Five dedicated, illuminated keepsakes written specifically for Nidhu's Bangalore move.</p>
+      </div>
+
+      <div class="luxury-frames-row">
+
+        <div class="aurora-frame glass-surface tilt-card">
+          <div class="frame-index-header">
+            <p class="frame-tag-mono">FRAME 01 // ROOTS</p>
+            <p class="frame-coordinate">MAA • 13.0827° N</p>
+          </div>
+          <div class="decorative-mark">“</div>
+          <p class="frame-quote-body">
+            From random chai stops, shared laughs, and daily desk conversations in Chennai to you conquering Bangalore — genuine friendship doesn't fade with travel; it grows into something indestructible.
+          </p>
+          <div class="frame-seal-bar">
+            <p class="seal-text">Rooted In Chennai</p>
+          </div>
+        </div>
+
+        <div class="aurora-frame glass-surface tilt-card">
+          <div class="frame-index-header">
+            <p class="frame-tag-mono">FRAME 02 // AMBITION</p>
+            <p class="frame-coordinate">BLR • 12.9716° N</p>
+          </div>
+          <div class="decorative-mark">“</div>
+          <p class="frame-quote-body">
+            Walk into that Bangalore internship like you own the place. Never second-guess your worth or hesitate to speak your mind — you worked relentlessly for this exact seat.
+          </p>
+          <div class="frame-seal-bar">
+            <p class="seal-text">Own Your Space</p>
+          </div>
+        </div>
+
+        <div class="aurora-frame glass-surface tilt-card">
+          <div class="frame-index-header">
+            <p class="frame-tag-mono">FRAME 03 // SANCTUARY</p>
+            <p class="frame-coordinate">DISTANCE • 346 KM</p>
+          </div>
+          <div class="decorative-mark">“</div>
+          <p class="frame-quote-body">
+            Bangalore might be down the interstate highway, but whenever you feel homesick, stressed, or just need to vent unfiltered thoughts, remember I'm only one ring away.
+          </p>
+          <div class="frame-seal-bar">
+            <p class="seal-text">Priority Hotline</p>
+          </div>
+        </div>
+
+        <div class="aurora-frame glass-surface tilt-card">
+          <div class="frame-index-header">
+            <p class="frame-tag-mono">FRAME 04 // REALITY</p>
+            <p class="frame-coordinate">STATUS • UNBROKEN</p>
+          </div>
+          <div class="decorative-mark">“</div>
+          <p class="frame-quote-body">
+            Offices will change, schedules will get hectic, and routines will evolve. But what we built isn't fragile enough to get shaken up by a different pin code.
+          </p>
+          <div class="frame-seal-bar">
+            <p class="seal-text">The Constant</p>
+          </div>
+        </div>
+
+        <div class="aurora-frame glass-surface tilt-card">
+          <div class="frame-index-header">
+            <p class="frame-tag-mono">FRAME 05 // FAREWELL</p>
+            <p class="frame-coordinate">COUNTDOWN • 1.20 MO</p>
+          </div>
+          <div class="decorative-mark">“</div>
+          <p class="frame-quote-body">
+            Watching the 2-month countdown drop to 1 month and 20 days made my heart sink, but knowing you're flying makes every second of missing you worthwhile. Go make us proud, Nidhu.
+          </p>
+          <div class="frame-seal-bar">
+            <p class="seal-text">Fly High, Nidhu</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 10 Dialogue & Friendship Quotes Deck -->
+    <section class="section-container">
+      <div class="section-heading-wrap">
+        <p class="section-super">THE CHRONICLES // 03</p>
+        <h2 class="section-title">10 Lines on Growth & Letting Go</h2>
+        <p class="section-subtitle">Reflections drawn directly from the movie reels and the reality of this transition.</p>
+      </div>
+
+      <div class="quotes-monolith-grid" id="quotesMonolith">
+        <!-- Injected dynamically via script.js -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Interactive Signal Toast Notification -->
+  <div class="cyber-toast" id="cyberToast">Signal Dispatched: Chennai ➔ Bangalore! ⚡</div>
+
+  <!-- Sovereign Footer -->
+  <footer class="sovereign-footer">
+    <p class="footer-constellation">✦ • ✦ • ✦</p>
+    <p class="footer-credit">Handcrafted for Nidhu • Rooting for your journey from Chennai to Bangalore, always.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
